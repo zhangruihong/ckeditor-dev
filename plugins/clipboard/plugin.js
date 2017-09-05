@@ -1388,6 +1388,11 @@
 				// Cancel native drop.
 				evt.data.preventDefault();
 
+				// #808
+				if ( editor.readOnly ) {
+					return;
+				}
+
 				var target = evt.data.getTarget(),
 					readOnly = target.isReadOnly();
 
