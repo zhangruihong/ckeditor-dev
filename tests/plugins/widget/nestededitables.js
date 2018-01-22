@@ -1402,12 +1402,12 @@
 				range.select();
 				nested.focus();
 
-				editor.once( 'selectionChange', function() {
+				editor.once( 'afterPaste', function() {
 					resume( function() {
 						try {
 							nested.getData();
 						} catch ( e ) {
-							assert.fail( 'Error was thrown' );
+							assert.fail( 'Error was thrown: ' + e );
 						}
 
 						assert.pass( 'Everything worked' );
@@ -1415,7 +1415,7 @@
 				} );
 
 				// Simulate pasted copied, upcasted widget
-				bender.tools.emulatePaste( editor, '<div data-cke-widget-wrapper="1"><div data-widget="widget-pastenested"><div data-cke-widget-editable="nested"></div></div></div>' );
+				bender.tools.emulatePaste( editor, '<div data-cke-widget-wrapper="1"><div data-cke-widget-upcasted="1" data-widget="pastenested"><div data-cke-widget-editable="nested">Test</div></div></div>' );
 
 				wait();
 			} );
