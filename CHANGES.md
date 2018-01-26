@@ -1,6 +1,12 @@
 ﻿CKEditor 4 Changelog
 ====================
 
+## CKEditor 4.10.2
+
+Fixed Issues:
+
+* [#1113](https://github.com/ckeditor/ckeditor-dev/issues/1113): [Firefox] Fixed: Nested contenteditable elements path not updated on focus with divarea plugin.
+
 ## CKEditor 4.10.1
 
 Fixed Issues:
