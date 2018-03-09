@@ -1,6 +1,12 @@
 ﻿CKEditor 4 Changelog
 ====================
 
+## CKEditor 4.10.2
+
+Fixed Issues:
+
+* [#1722](https://github.com/ckeditor/ckeditor-dev/issues/1722): [`CKEDITOR.filter.instances`](https://docs.ckeditor.com/ckeditor4/latest/api/CKEDITOR_filter.html#static-property-instances) is causing memory leaks.
+
 ## CKEditor 4.10.1
 
 Fixed Issues:
