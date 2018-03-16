@@ -7,6 +7,7 @@ New Features:
 
 * [#2072](https://github.com/ckeditor/ckeditor-dev/issues/2072): [UI Button](https://ckeditor.com/cke4/addon/button) plugin supports custom `aria-haspopup` property values. [Menu Button](https://ckeditor.com/cke4/addon/menubutton) `aria-haspopup` value is now `menu`, [Panel Button](https://ckeditor.com/cke4/addon/panelbutton) and [Rich Combo](https://ckeditor.com/cke4/addon/richcombo) `aria-haspopup` value is now `listbox`.
 * [#2154](https://github.com/ckeditor/ckeditor-dev/issues/2154): [Link](https://ckeditor.com/cke4/addon/link) plugin now supports telephone number links.
+* [#1679](https://github.com/ckeditor/ckeditor-dev/issues/1679): Introduced the Split Button plugin. Also added option to set initial style for button when creating it, and create button without icon.
 
 API Changes:
 
