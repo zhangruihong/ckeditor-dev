@@ -149,15 +149,16 @@ bender.test( {
 		}, 200 );
 	},
 
-	'test "selectionChange" fires properly with nested contentEditable': function() {
-		var editor = this.editors.editorInline, editable = editor.editable(), stub = sinon.stub( editor, 'selectionChange' );
+	'test focused nested editable changes elementPath': function() {
+		var editor = this.editors.editorInline;
 
-		bender.tools.setHtmlWithSelection( editor, '<div contenteditable=true><div contenteditable=false><div contenteditable=true id="nested">xxx</div></div></div>' );
+		bender.tools.setHtmlWithSelection( editor, '<div contenteditable=true>^xxx<div contenteditable=false><em contenteditable=true id="nested">xxx</em></div></div>' );
 
-		var event = CKEDITOR.env.webkit && 'DOMFocusIn' || CKEDITOR.env.gecko && 'focusin' || 'focus';
-		editable.fire( event, new CKEDITOR.dom.event( { target: editable.findOne( '#nested' ) } ) );
+		assert.areEqual( 'div', editor.elementPath().blockLimit.getName() );
 
-		assert.isTrue( stub.called );
+		editor.editable().findOne( '#nested' ).focus();
+
+		assert.areEqual( 'em', editor.elementPath().blockLimit.getName() );
 	},
 
 	'test "selectionChange" not fired when editor selection is locked': function() {
