@@ -16,6 +16,7 @@ Fixed Issues:
 * [#1776](https://github.com/ckeditor/ckeditor-dev/issues/1776): [Image Base](https://ckeditor.com/cke4/addon/imagebase) empty caption placeholder is not hidden when blurred.
 * [#1592](https://github.com/ckeditor/ckeditor-dev/issues/1592): [Image Base](https://ckeditor.com/cke4/addon/imagebase) caption is not visible after paste.
 * [#620](https://github.com/ckeditor/ckeditor-dev/issues/620): Fixed: [`forcePasteAsPlainText`](https://docs.ckeditor.com/ckeditor4/latest/api/CKEDITOR_config.html#cfg-forcePasteAsPlainText) will be respected when internal and cross-editor pasting happens.
+* [#504](https://github.com/ckeditor/ckeditor-dev/issues/504): [Edge] Fixed: Editor's selection is collapsed to the beginning of the content when focusing editor for the first time.
 
 API Changes:
 
