@@ -149,6 +149,7 @@ bender.test( {
 		}, 200 );
 	},
 
+	// (#1113)
 	'test focused nested editable changes elementPath': function() {
 		var editor = this.editors.editorInline;
 
