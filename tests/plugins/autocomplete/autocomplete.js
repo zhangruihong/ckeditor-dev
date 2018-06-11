@@ -24,7 +24,8 @@
 
 	var configDefinition = {
 		textTestCallback: textTestCallback,
-		dataCallback: dataCallback
+		dataCallback: dataCallback,
+		followingSpace: false
 	};
 
 	bender.test( {
@@ -401,7 +402,8 @@
 					dataCallback: function( query, range, callback ) {
 						callback( [ { id: 1, name: 'anna' } ] );
 					},
-					outputTemplate: '<strong>{name}</strong>'
+					outputTemplate: '<strong>{name}</strong>',
+					followingSpace: false
 				} );
 
 			this.editorBots.standard.setHtmlWithSelection( '' );
@@ -432,7 +434,8 @@
 
 						return { text: '@Annabelle', range: range };
 					},
-					dataCallback: dataCallback
+					dataCallback: dataCallback,
+					followingSpace: false
 				} );
 
 			this.editorBots.standard.setHtmlWithSelection( '@Annabelle^' );
@@ -450,6 +453,46 @@
 				lastRangeRect.top + lastRangeRect.height - offset,
 				lastRangeRect.top + lastRangeRect.height + offset,
 				'Vertical position.' );
+
+			ac.destroy();
+		},
+
+		// (#2008)
+		'test following space is inserted after accepting match': function() {
+			var editor = this.editors.standard,
+				editable = editor.editable(),
+				ac = new CKEDITOR.plugins.autocomplete( editor, {
+					dataCallback: dataCallback,
+					textTestCallback: textTestCallback
+				} );
+
+			this.editorBots.standard.setHtmlWithSelection( '' );
+
+			editor.editable().fire( 'keyup', new CKEDITOR.dom.event( {} ) );
+
+			editable.fire( 'keydown', new CKEDITOR.dom.event( { keyCode: 13 } ) ); // ENTER
+
+			assert.areEqual( '<p>item1&nbsp;</p>', editor.getData() );
+
+			ac.destroy();
+		},
+
+		// (#2008)
+		'test following space is not doubled': function() {
+			var editor = this.editors.standard,
+				editable = editor.editable(),
+				ac = new CKEDITOR.plugins.autocomplete( editor, {
+					dataCallback: dataCallback,
+					textTestCallback: textTestCallback
+				} );
+
+			this.editorBots.standard.setHtmlWithSelection( '^&nbsp;foo' );
+
+			editor.editable().fire( 'keyup', new CKEDITOR.dom.event( {} ) );
+
+			editable.fire( 'keydown', new CKEDITOR.dom.event( { keyCode: 13 } ) ); // ENTER
+
+			assert.areEqual( '<p>item1&nbsp;foo</p>', editor.getData() );
 
 			ac.destroy();
 		}

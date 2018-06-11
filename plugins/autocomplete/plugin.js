@@ -341,8 +341,9 @@
 			selection.selectRanges( [ this.model.range ] );
 			editor.insertHtml( this.getHtmlToInsert( item ), 'text' );
 
+			// Insert following space after accepting match (#2008).
 			if ( this.followingSpace ) {
-				insertSpaceAfterMatch( editor );
+				insertFollowingSpace( editor );
 			}
 
 			editor.fire( 'saveSnapshot' );
@@ -1293,13 +1294,10 @@
 			cur[ key ] = CKEDITOR.tools.htmlEncode( item[ key ] );
 			return cur;
 		}, {} );
+	}
 
-		function insertSpaceAfterMatch( editor ) {
-			var selection = editor.getSelection();
-
-			var nextNode = selection.getRanges()[ 0 ].getNextNode( function( node ) {
-				return Boolean( node.type == CKEDITOR.NODE_TEXT && node.getText() );
-			} );
+	function insertFollowingSpace( editor ) {
+		var selection = editor.getSelection();
 
 			if ( nextNode && nextNode.getText().match( /^\s+/ ) ) {
 				var range = editor.createRange();
