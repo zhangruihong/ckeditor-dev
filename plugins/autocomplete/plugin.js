@@ -172,6 +172,13 @@
 		this.throttle = config.throttle !== undefined ? config.throttle : 20;
 
 		/**
+		 * See {@link CKEDITOR.plugins.autocomplete.configDefinition#followingSpace}.
+		 *
+		 * @property {Boolean} [followingSpace]
+		 */
+		this.throttle = config.followingSpace !== undefined ? config.followingSpace : true;
+
+		/**
 		 * The autocomplete view instance.
 		 *
 		 * @readonly
@@ -327,11 +334,17 @@
 			}
 
 			var item = this.model.getItemById( itemId ),
-				editor = this.editor;
+				editor = this.editor,
+				selection = editor.getSelection();
 
 			editor.fire( 'saveSnapshot' );
-			editor.getSelection().selectRanges( [ this.model.range ] );
+			selection.selectRanges( [ this.model.range ] );
 			editor.insertHtml( this.getHtmlToInsert( item ), 'text' );
+
+			if ( this.followingSpace ) {
+				insertSpaceAfterMatch( editor );
+			}
+
 			editor.fire( 'saveSnapshot' );
 		},
 
@@ -1280,6 +1293,22 @@
 			cur[ key ] = CKEDITOR.tools.htmlEncode( item[ key ] );
 			return cur;
 		}, {} );
+
+		function insertSpaceAfterMatch( editor ) {
+			var selection = editor.getSelection();
+
+			var nextNode = selection.getRanges()[ 0 ].getNextNode( function( node ) {
+				return Boolean( node.type == CKEDITOR.NODE_TEXT && node.getText() );
+			} );
+
+			if ( nextNode && nextNode.getText().match( /^\s+/ ) ) {
+				var range = editor.createRange();
+				range.setStart( nextNode, 1 );
+				selection.selectRanges( [ range ] );
+			} else {
+				editor.insertHtml( '&nbsp;' );
+			}
+		}
 	}
 
 	/**
@@ -1377,6 +1406,12 @@
 	 * Indicates throttle threshold expressed in milliseconds reducing text checks frequency.
 	 *
 	 * @property {Number} [throttle=20]
+	 */
+
+	/**
+	 * Indicates if a following space should be added after accepted match.
+	 *
+	 * @property {Number} [followingSpace=true]
 	 */
 
 	/**
