@@ -334,11 +334,10 @@
 			}
 
 			var item = this.model.getItemById( itemId ),
-				editor = this.editor,
-				selection = editor.getSelection();
+				editor = this.editor;
 
 			editor.fire( 'saveSnapshot' );
-			selection.selectRanges( [ this.model.range ] );
+			editor.getSelection().selectRanges( [ this.model.range ] );
 			editor.insertHtml( this.getHtmlToInsert( item ), 'text' );
 
 			// Insert following space after accepting match (#2008).
@@ -1407,9 +1406,9 @@
 	 */
 
 	/**
-	 * Indicates if a following space should be added after accepted match.
+	 * Indicates if a following space should be added after inserted match into an editor.
 	 *
-	 * @property {Number} [followingSpace=true]
+	 * @property {Boolean} [followingSpace=true]
 	 */
 
 	/**
