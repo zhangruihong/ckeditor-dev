@@ -459,6 +459,11 @@
 
 		// (#2008)
 		'test following space is inserted after accepting match': function() {
+			// Ignore test due to IE issue (#2077).
+			if ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) {
+				assert.ignore();
+			}
+
 			var editor = this.editors.standard,
 				editable = editor.editable(),
 				ac = new CKEDITOR.plugins.autocomplete( editor, {
@@ -479,6 +484,11 @@
 
 		// (#2008)
 		'test following space is not doubled': function() {
+			// Ignore test due to IE issue (#2077).
+			if ( CKEDITOR.env.ie && CKEDITOR.env.version < 11 ) {
+				assert.ignore();
+			}
+
 			var editor = this.editors.standard,
 				editable = editor.editable(),
 				ac = new CKEDITOR.plugins.autocomplete( editor, {
