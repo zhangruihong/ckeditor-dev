@@ -10,6 +10,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'af', {
 	paste: 'Plak',
 	pasteNotification: 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.', // MISSING
 	pasteArea: 'Plak-area',
-	pasteMsg: 'Paste your content inside the area below and press OK.', // MISSING
-	title: 'Byvoeg'
+	pasteMsg: 'Paste your content inside the area below and press OK.' // MISSING
 } );

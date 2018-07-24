@@ -10,6 +10,5 @@ CKEDITOR.plugins.setLang( 'clipboard', 'ro', {
 	paste: 'Adaugă din clipboard',
 	pasteNotification: 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.', // MISSING
 	pasteArea: 'Suprafața de adăugare',
-	pasteMsg: 'Paste your content inside the area below and press OK.', // MISSING
-	title: 'Adaugă'
+	pasteMsg: 'Paste your content inside the area below and press OK.' // MISSING
 } );
