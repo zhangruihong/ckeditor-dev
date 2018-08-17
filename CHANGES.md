@@ -6,6 +6,7 @@
 Fixed Issues:
 
 * [#1181](https://github.com/ckeditor/ckeditor-dev/issues/1181): [Chrome] Fixed: Opening context menu in readonly editor results in error.
+* [#898](https://github.com/ckeditor/ckeditor-dev/issues/898): Fixed: [Image2](https://ckeditor.com/cke4/addon/image2) long alt text protrudes into editor when image is selected.
 
 ## CKEditor 4.10.1
 
