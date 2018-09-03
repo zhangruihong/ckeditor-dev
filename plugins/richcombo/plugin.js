@@ -182,11 +182,11 @@ CKEDITOR.plugins.add( 'richcombo', {
 				};
 
 				// Update status when activeFilter, mode, selection or readOnly changes.
-				editor.on( 'activeFilterChange', this.updateState, this );
-				editor.on( 'mode', this.updateState, this );
-				editor.on( 'selectionChange', this.updateState, this );
+				editor.on( 'activeFilterChange', updateState, this );
+				editor.on( 'mode', updateState, this );
+				editor.on( 'selectionChange', updateState, this );
 				// If this combo is sensitive to readOnly state, update it accordingly.
-				!this.readOnly && editor.on( 'readOnly', this.updateState, this );
+				!this.readOnly && editor.on( 'readOnly', updateState, this );
 
 				var keyDownFn = CKEDITOR.tools.addFunction( function( ev, element ) {
 					ev = new CKEDITOR.dom.event( ev );
@@ -236,6 +236,10 @@ CKEDITOR.plugins.add( 'richcombo', {
 					this.onRender();
 
 				return instance;
+
+				function updateState( evt ) {
+					this.updateState( evt.editor );
+				}
 			},
 
 			createPanel: function( editor ) {
