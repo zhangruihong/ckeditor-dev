@@ -9,6 +9,7 @@ Fixed Issues:
 * [#2276](https://github.com/ckeditor/ckeditor-dev/issues/2276): [iOS] Fixed: [Button](https://ckeditor.com/cke4/addon/button) state doesn't refresh properly.
 * [#1489](https://github.com/ckeditor/ckeditor-dev/issues/1489): Fixed: [Table Selection](https://docs.ckeditor.com/ckeditor4/latest/api/CKEDITOR_plugins_tableselection.html) table contents can be removed in readonly mode.
 * [#586](https://github.com/ckeditor/ckeditor-dev/issues/586) Fixed: required attribute not being correctly recognized by form dialog. Thanks to [Roli Züger](https://github.com/rzueger)!
+* [#1268](https://github.com/ckeditor/ckeditor-dev/issues/1268): Fixed: Dropdown doesn't show hover state inside balloon toolbar.
 
 API Changes:
 
@@ -147,7 +148,6 @@ Fixed Issues:
 * [#1516](https://github.com/ckeditor/ckeditor-dev/issues/1516): Fixed: Fake selection allows removing content in read-only mode using the <kbd>Backspace</kbd> and <kbd>Delete</kbd> keys.
 * [#1570](https://github.com/ckeditor/ckeditor-dev/issues/1570): Fixed: Fake selection allows cutting content in read-only mode using the <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>X</kbd> keys.
 * [#1363](https://github.com/ckeditor/ckeditor-dev/issues/1363): Fixed: Paste notification is unclear and it might confuse users.
-* [#1268](https://github.com/ckeditor/ckeditor-dev/issues/1268): Fixed: Dropdown doesn't show hover state inside balloon toolbar.
 
 API Changes:
 
