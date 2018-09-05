@@ -9,6 +9,7 @@ Fixed Issues:
 * [#2276](https://github.com/ckeditor/ckeditor-dev/issues/2276): [iOS] Fixed: [Button](https://ckeditor.com/cke4/addon/button) state doesn't refresh properly.
 * [#1489](https://github.com/ckeditor/ckeditor-dev/issues/1489): Fixed: [Table Selection](https://docs.ckeditor.com/ckeditor4/latest/api/CKEDITOR_plugins_tableselection.html) table contents can be removed in readonly mode.
 * [#586](https://github.com/ckeditor/ckeditor-dev/issues/586) Fixed: required attribute not being correctly recognized by form dialog. Thanks to [Roli Züger](https://github.com/rzueger)!
+* [#1682](https://github.com/ckeditor/ckeditor-dev/issues/1682) Fixed: Hovering [Balloon Toolbar](https://ckeditor.com/cke4/addon/balloontoolbar) panel changes its size causing flickering.
 
 API Changes:
 
