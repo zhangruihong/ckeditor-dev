@@ -12,6 +12,7 @@ Fixed Issues:
 * [#1264](https://github.com/ckeditor/ckeditor-dev/issues/1264) Fixed: Right-click doesn't clear selection created with [Table Selection](https://ckeditor.com/cke4/addon/tableselection) plugin.
 * [#2380](https://github.com/ckeditor/ckeditor-dev/issues/2380) Fixed: Styling HTML comments in top level element result with extra paragraphs.
 * [#2294](https://github.com/ckeditor/ckeditor-dev/issues/2294) Fixed: Pasting content from MS Outlook and then bolding it results with an error.
+* [#748](https://github.com/ckeditor/ckeditor-dev/issues/748) Fixed: Scroll jumps when closing dialogs.
 
 API Changes:
 
