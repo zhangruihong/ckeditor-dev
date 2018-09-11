@@ -300,7 +300,7 @@ CKEDITOR.DIALOG_STATE_BUSY = 2;
 			definition: definition
 		}, editor ).definition;
 
-		// Overwrite definition with default config values (#2277).
+		// (#2277)
 		setConfigDefaultValues( this );
 
 		// Cache tabs that should be removed.
